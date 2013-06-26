@@ -1,0 +1,19 @@
+--- util.c
++++ util.c
+@@ -1927,11 +1937,12 @@
+ 
+     wattrset(win, on_left);
+     (void) wmove(win, height - 3, 0);
+-    (void) waddch(win, dlg_boxchar(ACS_LTEE));
+-    for (i = 0; i < width - 2; i++)
+-	(void) waddch(win, dlg_boxchar(ACS_HLINE));
++    (void) wadd_wch(win, WACS_LTEE);
++    for (i = 0; i < width - 2; i++) {
++		(void) wadd_wch(win, WACS_HLINE);
++	}
+     wattrset(win, on_right);
+-    (void) waddch(win, dlg_boxchar(ACS_RTEE));
++    (void) wadd_wch(win, WACS_RTEE);
+     wattrset(win, on_inside);
+     (void) wmove(win, height - 2, 1);
+     for (i = 0; i < width - 2; i++)
